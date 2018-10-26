@@ -1,0 +1,41 @@
+﻿@model  List<TswwAngleSharpWeb.Models.Agent>
+@{
+    ViewBag.Title = "无团或不在团内的代理商列表";
+}
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>团ID</td>
+            <td>头像</td>
+            <td>代理名称</td>
+            <td>联系方式</td>
+            <td>会员等级</td>
+            <td>累计采购额</td>
+            <td>本月采购额</td>
+            <td>首次代理</td>
+            <td>最后更新时间</td>
+            <td>所属团队</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.TuanIds</td>
+                <td><img src="@item.HeadImg" height="50" width="50" /></td>
+                <td>@item.Name</td>
+                <td>@item.Mobile</td>
+                <td>@item.Level</td>
+                <td>@item.TotalAmount</td>
+                <td>@item.CurrentMothlAmount</td>
+                <td>@item.FirstAgentTime</td>
+                <td>@item.LastUpDateTime</td>
+                <td>@item.BelongTuan</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
